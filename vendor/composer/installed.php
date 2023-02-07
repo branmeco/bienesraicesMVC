@@ -3,7 +3,7 @@
         'name' => 'juandelatorre/bienes-raices-poo_php_inicio',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '1cd1734bb12eb2d2b0e4039596dbc52b257b5004',
+        'reference' => 'ec8d61268b16389dfc4e98b1bd24c4a0987396e6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'juandelatorre/bienes-raices-poo_php_inicio' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '1cd1734bb12eb2d2b0e4039596dbc52b257b5004',
+            'reference' => 'ec8d61268b16389dfc4e98b1bd24c4a0987396e6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
