@@ -24,6 +24,7 @@ class Router
         
         if($fn){
             //La URL existe y hay una function asociada
+            // debuguear($this);
             call_user_func($fn, $this);
         }else{
             echo 'Página No Encontrada';
