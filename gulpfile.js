@@ -49,7 +49,7 @@ function imagenes() {
 
 function versionWebp() {
     return src(paths.imagenes)
-        .pipe( webp() )
+        .pipe( webp() ) 
         .pipe(dest('./public/build/img'))
         .pipe(notify({ message: 'Imagen Completada'}));
 }

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'juandelatorre/bienes-raices-poo_php_inicio',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '1cd1734bb12eb2d2b0e4039596dbc52b257b5004',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'juandelatorre/bienes-raices-poo_php_inicio' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '1cd1734bb12eb2d2b0e4039596dbc52b257b5004',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
