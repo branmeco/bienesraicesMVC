@@ -21,13 +21,19 @@ class Router
         if ($metodo === 'GET') {
             $fn = $this->rutasGET[$urlActual] ?? null;
         }
-        
-        if($fn){
+
+        if ($fn) {
             //La URL existe y hay una function asociada
             // debuguear($this);
             call_user_func($fn, $this);
-        }else{
+        } else {
             echo 'Página No Encontrada';
         }
+    }
+
+    //Muestra una vista
+    public function render($view)
+    {
+        include __DIR__ . "/views/$view.php";
     }
 }
