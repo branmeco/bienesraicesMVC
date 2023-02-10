@@ -42,6 +42,6 @@ class Router
 
         include __DIR__ . "/views/$view.php";
         $contenido = ob_get_clean(); //Limpia el buffer
-        include __DIR__ . "/views/propiedades/layout.php";
+        include __DIR__ . "/views/layout.php";
     }
 }
