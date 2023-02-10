@@ -6,11 +6,16 @@ class Router
 {
 
     public $rutasGET = [];
-    public $rutaspost = [];
+    public $rutasPOST = [];
 
     public function get($url, $fn)
     {
         $this->rutasGET[$url] = $fn;
+    }
+
+    public function post($url, $fn)
+    {
+        $this->rutasPOST[$url] = $fn;
     }
 
     public function comprobarRutas()
@@ -20,6 +25,8 @@ class Router
 
         if ($metodo === 'GET') {
             $fn = $this->rutasGET[$urlActual] ?? null;
+        } else {
+            $fn = $this->rutasPOST[$urlActual] ?? null;
         }
 
         if ($fn) {
@@ -34,7 +41,7 @@ class Router
     //Muestra una vista
     public function render($view, $datos = [])
     {
-        foreach($datos as $key => $value){
+        foreach ($datos as $key => $value) {
             $$key = $value;
         }
 
