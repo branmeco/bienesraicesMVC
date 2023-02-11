@@ -13,5 +13,5 @@
     <legend>Información Extra</legend>
 
     <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" name="vendedor[telefono]" placeholder="Teléfono Vendedor" value="<?php echo s( $vendedor->telefono ); ?>">
+    <input type="tel" id="telefono" name="vendedor[telefono]" placeholder="Teléfono Vendedor" value="<?php echo s( $vendedor->telefono ); ?>">
 </fieldset>
