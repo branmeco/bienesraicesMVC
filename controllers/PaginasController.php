@@ -20,11 +20,19 @@ class PaginasController
     {
         $router->render('paginas/nosotros', []);
     }
-    public static function propiedades()
+    public static function propiedades(Router $router)
     {
+        $propiedades = Propiedad::all();
+
+        $router -> render('paginas/propiedades', [
+            'propiedades' => $propiedades
+        ]);
     }
-    public static function propiedad()
+    public static function propiedad(Router $router)
     {
+        $router->render('páginas/propiedad', [
+
+        ]);
     }
     public static function blog()
     {
