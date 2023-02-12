@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Propiedad;
+
 class PaginasController
 {
     public static function index(Router $router)
@@ -24,16 +25,23 @@ class PaginasController
     {
         $propiedades = Propiedad::all();
 
-        $router -> render('paginas/propiedades', [
+        $router->render('paginas/propiedades', [
             'propiedades' => $propiedades
         ]);
     }
     public static function propiedad(Router $router)
     {
-        $router->render('páginas/propiedad', [
 
+        $id = validarORedireccionar('/propiedades');
+
+        //Buscar la propiedad por su id
+        $propiedad = Propiedad::find($id);
+
+        $router->render('paginas/propiedad', [
+            'propiedad' => $propiedad
         ]);
     }
+
     public static function blog()
     {
     }
