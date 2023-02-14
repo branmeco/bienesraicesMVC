@@ -52,6 +52,9 @@ class PaginasController
     public static function contacto(Router $router)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $respuestas = $_POST['contacto'];
+
             //Crear una instancia de PHPMailer
             $mail = new PHPMailer();
 
@@ -65,24 +68,35 @@ class PaginasController
             $mail->Port = 2525;
 
             //Configuarar el contenido del mail
-            $mail -> setFrom('admin@bienesraices.com');
-            $mail -> addAddress('branmeco17@gmail.com', 'BienesRaices.com');
-            $mail -> Subject = 'Tienes un nuevo mensaje';
+            $mail->setFrom('admin@bienesraices.com');
+            $mail->addAddress('branmeco17@gmail.com', 'BienesRaices.com');
+            $mail->Subject = 'Tienes un nuevo mensaje';
 
             //Habilitar HTML
             $mail->isHTML(true);
             $mail->CharSet = 'UTF-8';
 
             //Definir el contenido
-            $contenido = '<html><p>Tienes un nuevo mensaje</p></html>';
+            $contenido = '<html>';
+            $contenido .= '<p>Tienes un nuevo mensaje</p>';
+            $contenido .= '<p>Nombre: ' . $respuestas['nombre'] . '</p>';
+            $contenido .= '<p>Email: ' . $respuestas['email'] . '</p>';
+            $contenido .= '<p>Teléfono: ' . $respuestas['telefono'] . '</p>';
+            $contenido .= '<p>Mensaje: ' . $respuestas['mensaje'] . '</p>';
+            $contenido .= '<p>Vende o Compra: ' . $respuestas['opciones'] . '</p>';
+            $contenido .= '<p>Precio o Presupuesto: $' . $respuestas['presupuesto'] . '</p>';
+            $contenido .= '<p>Prefiere ser contactado: ' . $respuestas['contacto'] . '</p>';
+            $contenido .= '<p>Fecha Contacto: ' . $respuestas['fecha'] . '</p>';
+            $contenido .= '<p>Hora: ' . $respuestas['hora'] . '</p>';
+            $contenido .= '</html>';
 
-            $mail -> Body = $contenido;
-            $mail -> AltBody = 'Esta es texto alternativo sin HTML';
+            $mail->Body = $contenido;
+            $mail->AltBody = 'Esta es texto alternativo sin HTML';
 
             //Enviar el email
-            if($mail->send()){
+            if ($mail->send()) {
                 echo "Mensaje enviado Correctamente";
-            }else{
+            } else {
                 echo "El mensaje no se pudo enviar...";
             }
         }
