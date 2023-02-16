@@ -12,31 +12,27 @@ class LoginController
 
         $errores = [];
 
+
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new Admin($_POST);
-
             $errores = $auth->validar();
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $auth = new Admin($_POST);
-                $errores = $auth->validar();
+            if (empty($errores)) {
 
-                if (empty($errores)) {
-                    //Verifica si el usuario existe
-                    $resultado = $auth->existeUsuario();
+                $resultado = $auth->existeUsuario();
 
-                    if (!$resultado) {
-                        //Verifica si el usuario o no (mensaje de error)
-                        $errores = Admin::getErrores();
+
+                if (!$resultado) {
+                    $errores = Admin::getErrores();
+                } else {
+
+                    $autenticado = $auth->comprobarPassword($resultado);
+
+                    if ($autenticado) {
+                        $auth->autenticar();
                     } else {
-
-                        $autenticado = $auth->comprobarPassword($resultado);
-
-                        if ($autenticado) {
-                            $auth->autenticar();
-                        } else {
-                            $errores = Admin::getErrores();
-                        }
+                        $errores = Admin::getErrores();
                     }
                 }
             }
@@ -49,6 +45,8 @@ class LoginController
 
     public static function logout()
     {
-        echo "Desde logout";
+        session_start();
+        $_SESSION = [];
+        header('Location: /');
     }
 }
