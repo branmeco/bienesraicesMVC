@@ -65,7 +65,7 @@ function mostrarMetodosContacto(e) {
             <input type="time" id="hora" min="10:00" name="contacto[hora]">
         `;
     } else {
-        contactoDiv.textContent = `
+        contactoDiv.innerHTML = `
             <label for="email">E-mail</label>
             <input name="contacto[email]" placeholder="Tu Email" id="email" type="email">
         `;

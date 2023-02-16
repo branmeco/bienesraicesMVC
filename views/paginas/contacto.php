@@ -16,9 +16,6 @@
             <label for="nombre">Nombre</label>
             <input type="text" placeholder="Tu nombre" id="nombre" name="contacto[nombre]">
 
-            <label for="email">E-mail</label>
-            <input name="contacto[email]" placeholder="Tu Email" id="email" type="email">
-
             <label for="mensaje">Mensaje</label>
             <textarea id="mensaje" name="contacto[mensaje]"></textarea>
         </fieldset>
