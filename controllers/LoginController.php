@@ -9,7 +9,18 @@ class LoginController{
         $errores = [];
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            echo 'Autenticado...';
+           $auth = new Admin($_POST);
+
+           $errores = $auth->validar();
+
+           if(empty($errores)){
+            //Verificar si el usuario existe
+
+            //Verificar password
+
+            //Autenticar al usuario
+            
+           }
         }
 
         $router->render('auth/login',[

@@ -3,6 +3,7 @@
 namespace Model;
 
 class Admin extends ActiveRecord {
+
     // Base DE DATOS
     protected static $tabla = 'usuarios';
     protected static $columnasDB = ['id', 'email', 'password'];
@@ -18,6 +19,7 @@ class Admin extends ActiveRecord {
         $this->password = $args['password'] ?? '';
     }
 
+    //Validando el formulario de autenticación
     public function validar() {
         if(!$this->email) {
             self::$errores[] = "El Email del usuario es obligatorio";
