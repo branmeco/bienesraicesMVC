@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     eventListeners();
 
@@ -11,14 +11,14 @@ function darkMode() {
 
     // console.log(prefiereDarkMode.matches);
 
-    if(prefiereDarkMode.matches) {
+    if (prefiereDarkMode.matches) {
         document.body.classList.add('dark-mode');
     } else {
         document.body.classList.remove('dark-mode');
     }
 
-    prefiereDarkMode.addEventListener('change', function() {
-        if(prefiereDarkMode.matches) {
+    prefiereDarkMode.addEventListener('change', function () {
+        if (prefiereDarkMode.matches) {
             document.body.classList.add('dark-mode');
         } else {
             document.body.classList.remove('dark-mode');
@@ -26,7 +26,7 @@ function darkMode() {
     });
 
     const botonDarkMode = document.querySelector('.dark-mode-boton');
-    botonDarkMode.addEventListener('click', function() {
+    botonDarkMode.addEventListener('click', function () {
         document.body.classList.toggle('dark-mode');
     });
 }
@@ -38,8 +38,8 @@ function eventListeners() {
 
     //Muestra campos condicionales
     const metodoContacto = document.querySelectorAll('input[name="contacto[contacto]"]');
-    
-    metodoContacto.forEach(input=>input.addEventListener('click', mostrarMetodoContacto));
+
+    metodoContacto.forEach(input => input.addEventListener('click', mostrarMetodosContacto));
 }
 
 function navegacionResponsive() {
@@ -48,8 +48,26 @@ function navegacionResponsive() {
     navegacion.classList.toggle('mostrar')
 }
 
-function mostrarMetodoContacto(){
-    console.log('seleccionado...');
+function mostrarMetodosContacto(e) {
+    const contactoDiv = document.querySelector('#contacto');
+
+    if (e.target.value === 'telefono') {
+        contactoDiv.innerHTML = `
+            <label for="telefono">Número de Teléfono</label>
+            <input type="tel" placeholder="Tu Teléfono" id="telefono" name="contacto[telefono]">
+        
+            <p>Elija la fecha y la hora para la llamada</p>
+        
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="contacto[fecha]">
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" min="10:00" name="contacto[hora]">
+        `;
+    } else {
+        contactoDiv.textContent = `
+            <label for="email">E-mail</label>
+            <input name="contacto[email]" placeholder="Tu Email" id="email" type="email">
+        `;
+    }
 }
-
-
