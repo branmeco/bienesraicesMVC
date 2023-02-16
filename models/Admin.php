@@ -2,7 +2,8 @@
 
 namespace Model;
 
-class Admin extends ActiveRecord {
+class Admin extends ActiveRecord
+{
 
     // Base DE DATOS
     protected static $tabla = 'usuarios';
@@ -20,35 +21,38 @@ class Admin extends ActiveRecord {
     }
 
     //Validando el formulario de autenticación
-    public function validar() {
-        if(!$this->email) {
+    public function validar()
+    {
+        if (!$this->email) {
             self::$errores[] = "El Email del usuario es obligatorio";
         }
-        if(!$this->password) {
+        if (!$this->password) {
             self::$errores[] = "El Password del usuario es obligatorio";
         }
         return self::$errores;
     }
 
-    public function existeUsuario() {
+    public function existeUsuario()
+    {
         // Revisar si el usuario existe.
         $query = "SELECT * FROM " . self::$tabla . " WHERE email = '" . $this->email . "' LIMIT 1";
         $resultado = self::$db->query($query);
 
-        if($resultado->num_rows) {
+        if ($resultado->num_rows) {
             self::$errores[] = 'El Usuario no existe';
-        } 
+        }
         return $resultado;
-        } 
     }
 
-    public function verificarPassword($resultado) {
+
+    public function comprobarPassword($resultado)
+    {
 
         $usuario = $resultado->fetch_assoc();
         $auth = password_verify($this->password, $usuario['password']);
 
 
-        if($auth) {
+        if ($auth) {
 
             // El usuario esta autenticado
             session_start();
@@ -64,8 +68,5 @@ class Admin extends ActiveRecord {
                 self::$errores
             ];
         }
-
-
     }
-
 }
