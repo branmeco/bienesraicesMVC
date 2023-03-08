@@ -8,23 +8,23 @@ You must previously install the dependency package for both node (node_module) a
 
 <code> npm install </code>
 
-### composer install
+<code> composer install </code>
 
 In the project directory bienesraicesMVC/public, you can run:
 
-### php -S localhost:3000
+<code> php -S localhost:3000 </code>
 
 but the gulp command must be executed for the automation of some project tasks.
 You can run; from the parent directory:
 
-### gulp
+<code> gulp </code>
 
 recommendations:
 
 In the event that you have problems with gulp, run the commands:
 
-### npm run gulp or gulp dev
+<code> npm run gulp </code> or <code>gulp dev</code>
 
 It is recommended to update your dependencies:
 
-### composer update
+<code> composer update </code>
