@@ -6,7 +6,7 @@ Getting Started with PHP, Gulp, sass, node.
 
 You must previously install the dependency package for both node (node_module) and php (composer) originating from the package.json and composer.json files of the project.
 
-### npm install
+<code> npm install </code>
 
 ### composer install
 
